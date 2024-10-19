@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
     let lastScrollTop = 0;
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(".home__Scroll", {
@@ -85,24 +84,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // New code for scroll-progress in section 2
+    const scrollProgress = document.querySelector('.home__ScrollProgress');
+    if (scrollProgress) {
+        const scrollBox = document.querySelector('.home__ScrollBox');
+        
+        ScrollTrigger.create({
+            trigger: scrollBox,
+            start: "top top",
+            end: "bottom bottom",
+            onUpdate: (self) => {
+                const progress = self.progress;
+                const height = scrollBox.offsetHeight - scrollProgress.offsetHeight;
+                gsap.to(scrollProgress, {
+                    y: progress * height,
+                    duration: 0.1
+                });
+            }
+        });
+    }
 
 });
-
-const scrollProgress = document.querySelector('.home__ScrollProgress');
-if (scrollProgress) {
-  const scrollBox = document.querySelector('.home__ScrollBox');
-  
-  ScrollTrigger.create({
-    trigger: scrollBox,
-    start: "top top",
-    end: "bottom bottom",
-    onUpdate: (self) => {
-      const progress = self.progress;
-      const height = scrollBox.offsetHeight - scrollProgress.offsetHeight;
-      gsap.to(scrollProgress, {
-        y: progress * height,
-        duration: 0.1
-      });
-    }
-  });
-}
