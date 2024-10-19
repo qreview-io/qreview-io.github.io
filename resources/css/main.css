@@ -15741,3 +15741,16 @@ a {
         transform: scale(0.95) rotate(0deg);
     }
 }
+
+.home__News .dragSlider__Items {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem; /* This creates spacing between items, adjust as needed */
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    padding-bottom: 1rem; /* Adds some space for the scrollbar */
+}
+
+.home__NewsItem {
+    flex: 0 0 auto; /* Prevents items from shrinking */
+    width: 300px; /* Adjust this value as needed */
+}
