@@ -87,3 +87,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+const scrollProgress = document.querySelector('.home__ScrollProgress');
+if (scrollProgress) {
+  const scrollBox = document.querySelector('.home__ScrollBox');
+  
+  ScrollTrigger.create({
+    trigger: scrollBox,
+    start: "top top",
+    end: "bottom bottom",
+    onUpdate: (self) => {
+      const progress = self.progress;
+      const height = scrollBox.offsetHeight - scrollProgress.offsetHeight;
+      gsap.to(scrollProgress, {
+        y: progress * height,
+        duration: 0.1
+      });
+    }
+  });
+}
