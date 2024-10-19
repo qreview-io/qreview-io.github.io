@@ -127,4 +127,29 @@ if (changingImages && textItems.length > 0) {
     });
     }
 
+    // CHF counter in section 6 (pricing section)
+    const pricingRoller = document.querySelector('.pricing__Roller h3 span');
+    if (pricingRoller) {
+        let startValue = 90;
+        let endValue = 119;
+        let duration = 2;
+        
+        ScrollTrigger.create({
+            trigger: ".pricing",
+            start: "top 80%",
+            once: true,  // This ensures the animation only happens once
+            onEnter: () => {
+                gsap.to(pricingRoller, {
+                    innerText: endValue,
+                    duration: duration,
+                    ease: "power1.inOut",
+                    snap: { innerText: 1 },
+                    modifiers: {
+                        innerText: (value) => Math.round(value).toString()
+                    }
+                });
+            }
+        });
+    }
+
 });
