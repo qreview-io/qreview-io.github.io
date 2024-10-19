@@ -84,89 +84,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-// Scroll-progress indicator in section 2 (phone)
-const scrollProgress = document.querySelector('.home__ScrollProgress');
-const scrollBox = document.querySelector('.home__ScrollBox');
-const scrollItems = document.querySelectorAll('.home__ScrollItem');
-
-if (scrollProgress && scrollBox && scrollItems.length > 0) {
-    const progressSpans = scrollProgress.querySelectorAll('span');
+    // Changing images in section 4
+    const changingImages = document.querySelector('.changingImages__Images');
+    const textItems = document.querySelectorAll('.changingImages__Text ul li');
     
-    // Make the progress indicator visible
-    gsap.to(scrollProgress, { opacity: 1, duration: 0.5 });
+    if (changingImages && textItems.length > 0) {
+        const images = changingImages.querySelectorAll('img');
+        let currentIndex = 0;
+        let intervalId;
 
-    ScrollTrigger.create({
-        trigger: scrollBox,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-            const progress = self.progress;
-            const itemHeight = scrollBox.offsetHeight / scrollItems.length;
-            const currentIndex = Math.floor(progress * scrollItems.length);
-            
-            // Update progress bar position
-            gsap.to(scrollProgress, {
-                y: progress * (scrollBox.offsetHeight - scrollProgress.offsetHeight),
-                duration: 0.1
-            });
-
-            // Update span classes
-            progressSpans.forEach((span, index) => {
-                if (index < currentIndex) {
-                    span.classList.add('isFinished');
-                    span.classList.remove('isActive');
-                } else if (index === currentIndex) {
-                    span.classList.add('isActive');
-                    span.classList.remove('isFinished');
-                } else {
-                    span.classList.remove('isActive', 'isFinished');
-                }
-            });
+        function changeImage(index) {
+            images[currentIndex].classList.remove('isActive');
+            textItems[currentIndex].classList.remove('isActive');
+            currentIndex = index;
+            images[currentIndex].classList.add('isActive');
+            textItems[currentIndex].classList.add('isActive');
         }
-    });
-}
 
-// New code for changing images in section 4
-const changingImages = document.querySelector('.changingImages__Images');
-const textItems = document.querySelectorAll('.changingImages__Text ul li');
+        function startInterval() {
+            intervalId = setInterval(() => {
+                changeImage((currentIndex + 1) % images.length);
+            }, 5000);
+        }
 
-if (changingImages && textItems.length > 0) {
-    const images = changingImages.querySelectorAll('img');
-    let currentIndex = 0;
-    let intervalId;
+        function stopInterval() {
+            clearInterval(intervalId);
+        }
 
-    function changeImage(index) {
-        images[currentIndex].classList.remove('isActive');
-        textItems[currentIndex].classList.remove('isActive');
-        currentIndex = index;
-        images[currentIndex].classList.add('isActive');
-        textItems[currentIndex].classList.add('isActive');
-    }
+        // Initial state
+        changeImage(0);
 
-    function startInterval() {
-        intervalId = setInterval(() => {
-            changeImage((currentIndex + 1) % images.length);
-        }, 5000);
-    }
+        // Start the automatic rotation
+        startInterval();
 
-    function stopInterval() {
-        clearInterval(intervalId);
-    }
-
-    // Initial state
-    changeImage(0);
-
-    // Start the automatic rotation
-    startInterval();
-
-    // Add click event listeners to text items
-    textItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            stopInterval();
-            changeImage(index);
-            startInterval();
+        // Add click event listeners to text items
+        textItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                stopInterval();
+                changeImage(index);
+                startInterval();
+            });
         });
-    });
     }
 
     // CHF counter in section 6 (pricing section)
@@ -194,21 +152,21 @@ if (changingImages && textItems.length > 0) {
         });
     }
 
-// Swiss flag animation in section 5
-const crossLeft = document.querySelector('.features__CrossLeft');
-const crossRight = document.querySelector('.features__CrossRight');
+    // Swiss flag animation in section 5
+    const crossLeft = document.querySelector('.features__CrossLeft');
+    const crossRight = document.querySelector('.features__CrossRight');
 
-if (crossLeft && crossRight) {
-    gsap.set(crossLeft, { opacity: 0 }); // Set initial opacity to 0 for left image only
-    gsap.set(crossRight, { opacity: 1 }); // Ensure right image is fully visible
+    if (crossLeft && crossRight) {
+        gsap.set(crossLeft, { opacity: 0 }); // Set initial opacity to 0 for left image only
+        gsap.set(crossRight, { opacity: 1 }); // Ensure right image is fully visible
 
-    ScrollTrigger.create({
-        trigger: ".home__FeaturesCross",
-        start: "top 80%",
-        onEnter: () => {
-            gsap.to(crossLeft, { opacity: 1, duration: 1, ease: "power2.out" });
-        }
-    });
-}
+        ScrollTrigger.create({
+            trigger: ".home__FeaturesCross",
+            start: "top 80%",
+            onEnter: () => {
+                gsap.to(crossLeft, { opacity: 1, duration: 1, ease: "power2.out" });
+            }
+        });
+    }
 
 });
