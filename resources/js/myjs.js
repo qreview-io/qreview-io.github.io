@@ -84,28 +84,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // New code for changing images in section 4
-    const changingImages = document.querySelector('.changingImages__Images');
-    const textItems = document.querySelectorAll('.changingImages__Text ul li');
-    
-    if (changingImages && textItems.length > 0) {
-        const images = changingImages.querySelectorAll('img');
-        let currentIndex = 0;
+// New code for changing images in section 4
+const changingImages = document.querySelector('.changingImages__Images');
+const textItems = document.querySelectorAll('.changingImages__Text ul li');
 
-        function changeImage() {
-            images[currentIndex].classList.remove('isActive');
-            textItems[currentIndex].classList.remove('isActive');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('isActive');
-            textItems[currentIndex].classList.add('isActive');
-        }
+if (changingImages && textItems.length > 0) {
+    const images = changingImages.querySelectorAll('img');
+    let currentIndex = 0;
+    let intervalId;
 
-        // Initial state
-        images[0].classList.add('isActive');
-        textItems[0].classList.add('isActive');
+    function changeImage(index) {
+        images[currentIndex].classList.remove('isActive');
+        textItems[currentIndex].classList.remove('isActive');
+        currentIndex = index;
+        images[currentIndex].classList.add('isActive');
+        textItems[currentIndex].classList.add('isActive');
+    }
 
-        // Change image every 5 seconds
-        setInterval(changeImage, 5000);
+    function startInterval() {
+        intervalId = setInterval(() => {
+            changeImage((currentIndex + 1) % images.length);
+        }, 5000);
+    }
+
+    function stopInterval() {
+        clearInterval(intervalId);
+    }
+
+    // Initial state
+    changeImage(0);
+
+    // Start the automatic rotation
+    startInterval();
+
+    // Add click event listeners to text items
+    textItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            stopInterval();
+            changeImage(index);
+            startInterval();
+        });
+    });
     }
 
 });
