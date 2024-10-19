@@ -152,4 +152,21 @@ if (changingImages && textItems.length > 0) {
         });
     }
 
+    // Swiss flag animation in section 5
+    const crossLeft = document.querySelector('.features__CrossLeft');
+    const crossRight = document.querySelector('.features__CrossRight');
+    
+    if (crossLeft && crossRight) {
+        gsap.set([crossLeft, crossRight], { opacity: 0 }); // Set initial opacity to 0
+    
+        ScrollTrigger.create({
+            trigger: ".home__FeaturesCross",
+            start: "top 80%",
+            onEnter: () => {
+                gsap.to(crossLeft, { opacity: 1, duration: 1, ease: "power2.out" });
+                gsap.to(crossRight, { opacity: 1, duration: 1, ease: "power2.out", delay: 0.5 });
+            }
+        });
+    }
+
 });
