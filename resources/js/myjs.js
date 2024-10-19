@@ -84,6 +84,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+// Scroll-progress indicator in section 2
+const scrollProgress = document.querySelector('.home__ScrollProgress');
+const scrollBox = document.querySelector('.home__ScrollBox');
+
+if (scrollProgress && scrollBox) {
+    const progressSpans = scrollProgress.querySelectorAll('span');
+    const totalItems = progressSpans.length;
+
+    ScrollTrigger.create({
+        trigger: scrollBox,
+        start: "top top",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+            const progress = self.progress;
+            const currentIndex = Math.floor(progress * totalItems);
+            
+            // Update progress bar position
+            gsap.to(scrollProgress, {
+                y: `calc(-50% + ${progress * scrollBox.offsetHeight}px)`,
+                duration: 0.1
+            });
+
+            // Update span classes
+            progressSpans.forEach((span, index) => {
+                if (index < currentIndex) {
+                    span.classList.add('isFinished');
+                    span.classList.remove('isActive');
+                } else if (index === currentIndex) {
+                    span.classList.add('isActive');
+                    span.classList.remove('isFinished');
+                } else {
+                    span.classList.remove('isActive', 'isFinished');
+                }
+            });
+        }
+    });
+}
+    
     // Changing images in section 4
     const changingImages = document.querySelector('.changingImages__Images');
     const textItems = document.querySelectorAll('.changingImages__Text ul li');
