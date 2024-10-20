@@ -50,7 +50,7 @@
                                     t.data.value.small_title
                                         ? n("span", { staticClass: "category" }, [
                                               t._v(t._s(t.data.value.small_title) + "\n        "),
-                                              n("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-src": "/resources/images/icon-changing-images.svg", alt: "Solutions", width: "85", height: "85" } }),
+                                              n("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-src": "./resources/images/icon-changing-images.svg", alt: "Solutions", width: "85", height: "85" } }),
                                           ])
                                         : t._e(),
                                     t._v(" "),
@@ -60,7 +60,7 @@
                                     t._v(" "),
                                     n("div", { staticClass: "changingImages__Inner" }, [
                                         n("div", { staticClass: "changingImages__Carousel" }, [
-                                            n("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-src": "/resources/images/laptop-blank-new.png", alt: "Solutions", width: "369", height: "560" } }),
+                                            n("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-src": "./resources/images/laptop-blank-new.png", alt: "Solutions", width: "369", height: "560" } }),
                                             t._v(" "),
                                             n(
                                                 "div",
