@@ -159,3 +159,7 @@ window.addEventListener('error', function(event) {
     event.preventDefault(); // Prevent the error from causing a page reload
     return true; // Prevent the error from being reported
 });
+window.addEventListener('unhandledrejection', function(event) {
+    console.warn('Unhandled promise rejection:', event.reason);
+    event.preventDefault();
+});
