@@ -99,7 +99,7 @@
                 c({ type: "timeout", target: script });
             }, 120000);
 
-            script.onerror = script.onload = c;
+            // script.onerror = script.onload = c;
             document.head.appendChild(script);
         }
     return Promise.all(r);
