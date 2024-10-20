@@ -23,30 +23,26 @@
         var t = (n[r] = { i: r, l: !1, exports: {} });
         return e[r].call(t.exports, t, t.exports, f), (t.l = !0), t.exports;
     }
-    (f.e = function (e) {
-        var r = [],
-            t = o[e];
-        if (0 !== t)
-            if (t) r.push(t[2]);
-            else {
-                var n = new Promise(function (r, n) {
-                    t = o[e] = [r, n];
-                });
-                r.push((t[2] = n));
-                var c,
-                    script = document.createElement("script");
-                (script.charset = "utf-8"),
-                    (script.timeout = 120),
-                    f.nc && script.setAttribute("nonce", f.nc),
 
-                    // print the filenames being loaded to console
-                    console.log("Attempting to load:", f.p + "" + {/* chunk mappings */}[e] + ".modern.js"),
-                      
-                    (script.src = (function (e) {
-                        return (
-                            f.p +
-                            "" +
-                            {
+    (f.e = function (e) {
+    var r = [],
+        t = o[e];
+    if (0 !== t)
+        if (t) r.push(t[2]);
+        else {
+            var n = new Promise(function (r, n) {
+                t = o[e] = [r, n];
+            });
+            r.push((t[2] = n));
+            var c,
+                script = document.createElement("script");
+            script.charset = "utf-8";
+            script.timeout = 120;
+            if (f.nc) script.setAttribute("nonce", f.nc);
+
+            console.log("Attempting to load:", f.p + "" + {/* chunk mappings */}[e] + ".modern.js");
+              
+            script.src = f.p + "" + {
                                 0: "eab1433",
                                 1: "816cfbc",
                                 2: "9993b2d",
@@ -81,32 +77,34 @@
                                 33: "3e9e756",
                                 34: "c2970de",
                                 35: "d388cae",
-                            }[e] +
-                            ".modern.js"
-                        );
-                    })(e));
-                var d = new Error();
-                c = function (r) {
-                    (script.onerror = script.onload = null), clearTimeout(l);
-                    var t = o[e];
-                    if (0 !== t) {
-                        if (t) {
-                            var n = r && ("load" === r.type ? "missing" : r.type),
-                                c = r && r.target && r.target.src;
-                            console.warn("Loading chunk " + e + " failed.\n(" + n + ": " + c + ")");
-                            // Instead of rejecting, resolve the promise
-                            t[0]();
-                        }
-                        o[e] = void 0;
+            }[e] + ".modern.js";
+
+            c = function (r) {
+                script.onerror = script.onload = null;
+                clearTimeout(l);
+                var t = o[e];
+                if (0 !== t) {
+                    if (t) {
+                        var n = r && (r.type === "load" ? "missing" : r.type);
+                        var c = r && r.target && r.target.src;
+                        console.warn("Chunk " + e + " failed to load", n, c);
+                        // Resolve the promise instead of rejecting
+                        t[0]();
                     }
-                };
-                var l = setTimeout(function () {
-                    c({ type: "timeout", target: script });
-                }, 12e4);
-                (script.onerror = script.onload = c), document.head.appendChild(script);
-            }
-        return Promise.all(r);
-    }),
+                    o[e] = undefined;
+                }
+            };
+
+            var l = setTimeout(function () {
+                c({ type: "timeout", target: script });
+            }, 120000);
+
+            script.onerror = script.onload = c;
+            document.head.appendChild(script);
+        }
+    return Promise.all(r);
+}),
+        
         (f.m = e),
         (f.c = n),
         (f.d = function (e, r, t) {
