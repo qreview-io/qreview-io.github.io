@@ -144,7 +144,7 @@
         (f.o = function (object, e) {
             return Object.prototype.hasOwnProperty.call(object, e);
         }),
-        (f.p = "./_nuxt/"),
+        (f.p = "/"),
         (f.oe = function (e) {
             throw (console.error(e), e);
         });
