@@ -47,13 +47,13 @@
                                                   l("img", {
                                                       directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
                                                       staticClass: "solutions__CrossLeft",
-                                                      attrs: { "data-src": "/resources/images/solutions-scroll-left.svg", alt: "Business", width: "450", height: "450" },
+                                                      attrs: { "data-src": "./resources/images/solutions-scroll-left.svg", alt: "Business", width: "450", height: "450" },
                                                   }),
                                                   t._v(" "),
                                                   l("img", {
                                                       directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
                                                       staticClass: "solutions__CrossRight",
-                                                      attrs: { "data-src": "/resources/images/solutions-scroll-right.svg", alt: "Business", width: "450", height: "450" },
+                                                      attrs: { "data-src": "./resources/images/solutions-scroll-right.svg", alt: "Business", width: "450", height: "450" },
                                                   }),
                                               ])
                                             : t._e(),
