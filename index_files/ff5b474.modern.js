@@ -80,7 +80,7 @@
             }[e] + ".modern.js";
 
             c = function (r) {
-                script.onerror = script.onload = null;
+                // script.onerror = script.onload = null;
                 clearTimeout(l);
                 var t = o[e];
                 if (0 !== t) {
