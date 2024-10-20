@@ -154,3 +154,8 @@
     var v = l;
     t();
 })([]);
+window.addEventListener('error', function(event) {
+    console.warn('Global error:', event.error);
+    event.preventDefault(); // Prevent the error from causing a page reload
+    return true; // Prevent the error from being reported
+});
