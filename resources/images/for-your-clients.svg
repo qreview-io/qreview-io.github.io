@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 614 556">
+  <defs>
+    <polygon id="group_11-a" points="0 556 614 556 614 0 0 0"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="matrix(1 0 0 -1 0 556)">
+    <mask id="group_11-b" fill="#fff">
+      <use xlink:href="#group_11-a"/>
+    </mask>
+    <g fill="#FF4650" mask="url(#group_11-b)">
+      <g transform="translate(92.635 111.382)">
+        <polygon points="164.597 .649 356.622 .649 356.622 165.009 164.359 165.009 164.359 357.275 .004 357.275 .004 165.246" transform="rotate(-90 178.313 178.962)"/>
+        <polygon points="313.731 -.001 358.286 -.001 358.286 38.135 313.676 38.135 313.676 82.746 275.541 82.746 275.541 38.19" transform="rotate(-90 316.913 41.373)"/>
+        <polygon points="261.976 -.002 357.284 -.002 357.284 81.574 261.859 81.574 261.859 177.002 180.284 177.002 180.284 81.692" transform="rotate(-90 268.784 88.5)"/>
+      </g>
+    </g>
+  </g>
+</svg>
