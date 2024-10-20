@@ -4311,7 +4311,7 @@
                     },
                     getPageHead: (e, t) => (r, o = {}) => {
                         let n = "Website",
-                            l = `${e.domain}/resources/images/default_share_image.jpg`,
+                            l = `./resources/images/icon-list.svg`,
                             m = "This is a default page description";
                         r &&
                             (r.image && r.image.meta && r.image.meta.url && (l = r.image.meta.url),
