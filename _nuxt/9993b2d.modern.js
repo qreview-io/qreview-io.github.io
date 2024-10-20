@@ -109,7 +109,7 @@
                                         ]),
                                         e._v(" "),
                                         r("div", { staticClass: "clients__TextRight" }, [
-                                            r("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-src": "/resources/images/for-your-clients.svg", alt: "clients", width: "411", height: "372" } }),
+                                            r("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-src": "./resources/images/for-your-clients.svg", alt: "clients", width: "411", height: "372" } }),
                                         ]),
                                     ]),
                                 ]),
