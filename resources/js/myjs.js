@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+    
+    console.log("DOMContentLoaded event fired");
+    console.log(".home__Scroll element:", document.querySelector('.home__Scroll'));
+    console.log(".home__ScrollProgress element:", document.querySelector('.home__ScrollProgress'));
+    console.log(".changingImages__Images element:", document.querySelector('.changingImages__Images'));
+    console.log(".pricing__Roller h3 span element:", document.querySelector('.pricing__Roller h3 span'));
+    console.log(".features__CrossLeft element:", document.querySelector('.features__CrossLeft'));
 
     let lastScrollTop = 0;
     gsap.registerPlugin(ScrollTrigger);
