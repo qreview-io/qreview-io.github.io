@@ -145,9 +145,10 @@
             return Object.prototype.hasOwnProperty.call(object, e);
         }),
         (f.p = "/"),
-        // (f.oe = function (e) {
-        //     throw (console.error(e), e);
-        // });
+        f.oe = function (e) {
+            console.warn('Chunk loading error:', e);
+            // Don't throw the error
+        };
     var d = (window.webpackJsonp = window.webpackJsonp || []),
         l = d.push.bind(d);
     (d.push = r), (d = d.slice());
