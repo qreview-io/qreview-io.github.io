@@ -16,11 +16,29 @@
     <script src="./index_files/0fac5ea.modern.js"></script>
 
     <!-- below scrip it just to log the resource that is giving the template-404, presumable from NUXT, can be removed after -->
-    <script>
-        window.addEventListener('error', function(e) {
+<script>
+    window.addEventListener('error', function(e) {
+        if (e.target.tagName === 'LINK' || e.target.tagName === 'SCRIPT') {
             console.error('Resource failed to load:', e.target.src || e.target.href);
-        });
-    </script>
+            
+            // Create or update an error message element
+            let errorMsg = document.getElementById('error-message');
+            if (!errorMsg) {
+                errorMsg = document.createElement('div');
+                errorMsg.id = 'error-message';
+                errorMsg.style.position = 'fixed';
+                errorMsg.style.top = '0';
+                errorMsg.style.left = '0';
+                errorMsg.style.backgroundColor = 'red';
+                errorMsg.style.color = 'white';
+                errorMsg.style.padding = '10px';
+                errorMsg.style.zIndex = '9999';
+                document.body.appendChild(errorMsg);
+            }
+            errorMsg.textContent = 'Failed to load: ' + (e.target.src || e.target.href);
+        }
+    });
+</script>
 </head>
 
 <body class="">
