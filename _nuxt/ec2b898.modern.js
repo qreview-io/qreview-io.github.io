@@ -72,21 +72,21 @@
                                             l("div", { staticClass: "home__HeroCard" }, [
                                                 l("img", {
                                                     directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
-                                                    attrs: { "data-not-lazy": "", "data-src": "/resources/images/heroCard.png", alt: "Hero Card", width: "353", height: "207" },
+                                                    attrs: { "data-not-lazy": "", "data-src": "./resources/images/heroCard.png", alt: "Hero Card", width: "353", height: "207" },
                                                 }),
                                             ]),
                                             t._v(" "),
                                             l("div", { staticClass: "home__HeroBadge" }, [
-                                                l("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-not-lazy": "", "data-src": "/resources/images/hero-logo.svg", alt: "", width: "150", height: "150" } }),
+                                                l("img", { directives: [{ name: "lazy-load", rawName: "v-lazy-load" }], attrs: { "data-not-lazy": "", "data-src": "./resources/images/hero-logo.svg", alt: "", width: "150", height: "150" } }),
                                                 t._v(" "),
                                                 "en" === t.$store.state.lang
                                                     ? l("img", {
                                                           directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
-                                                          attrs: { "data-src": "/resources/images/badge_eng.svg", alt: "", "data-not-lazy": "", width: "150", height: "150" },
+                                                          attrs: { "data-src": "./resources/images/badge_eng.svg", alt: "", "data-not-lazy": "", width: "150", height: "150" },
                                                       })
                                                     : l("img", {
                                                           directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
-                                                          attrs: { "data-src": "/resources/images/badge_ger.svg", alt: "", "data-not-lazy": "", width: "150", height: "150" },
+                                                          attrs: { "data-src": "./resources/images/badge_ger.svg", alt: "", "data-not-lazy": "", width: "150", height: "150" },
                                                       }),
                                             ]),
                                         ],
