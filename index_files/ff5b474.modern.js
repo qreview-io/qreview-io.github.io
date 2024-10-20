@@ -93,7 +93,9 @@
                         if (t) {
                             var n = r && ("load" === r.type ? "missing" : r.type),
                                 c = r && r.target && r.target.src;
-                            (d.message = "Loading chunk " + e + " failed.\n(" + n + ": " + c + ")"), (d.name = "ChunkLoadError"), (d.type = n), (d.request = c), t[1](d);
+                            console.warn("Loading chunk " + e + " failed.\n(" + n + ": " + c + ")");
+                            // Instead of rejecting, resolve the promise
+                            t[0]();
                         }
                         o[e] = void 0;
                     }
