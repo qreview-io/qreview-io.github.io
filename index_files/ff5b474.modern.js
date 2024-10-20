@@ -38,6 +38,10 @@
                 (script.charset = "utf-8"),
                     (script.timeout = 120),
                     f.nc && script.setAttribute("nonce", f.nc),
+
+                    // print the filenames being loaded to console
+                    console.log("Attempting to load:", f.p + "" + {/* chunk mappings */}[e] + ".modern.js"),
+                      
                     (script.src = (function (e) {
                         return (
                             f.p +
