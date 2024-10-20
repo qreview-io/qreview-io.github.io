@@ -40,12 +40,12 @@
                                         l("img", {
                                             directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
                                             staticClass: "regulations__CrossLeft",
-                                            attrs: { "data-not-lazy": "", "data-src": "/resources/images/cross-scroll-left.svg", alt: "Business", width: "450", height: "450" },
+                                            attrs: { "data-not-lazy": "", "data-src": "./resources/images/cross-scroll-left.svg", alt: "Business", width: "450", height: "450" },
                                         }),
                                         t._v(" "),
                                         l("img", {
                                             directives: [{ name: "lazy-load", rawName: "v-lazy-load" }],
-                                            attrs: { "data-not-lazy": "", "data-src": "/resources/images/cross-scroll-right.svg", alt: "Business", width: "450", height: "450" },
+                                            attrs: { "data-not-lazy": "", "data-src": "./resources/images/cross-scroll-right.svg", alt: "Business", width: "450", height: "450" },
                                         }),
                                     ]),
                                 ]),
